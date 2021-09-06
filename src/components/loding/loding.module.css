@@ -28,7 +28,7 @@
     fill:#E1E1F3;
     animation: stroke 3s linear;
     animation-fill-mode : forwards;
-    stroke-dasharray: 360px;
+    stroke-dasharray: 400px;
 
 }
 
@@ -44,7 +44,7 @@
 
 @keyframes stroke { 
     0% { 
-        stroke-dashoffset: 360px; 
+        stroke-dashoffset: 400px; 
     } 
     50% {
         fill:#fff;
@@ -61,15 +61,15 @@
 }
     
 .login {
-    width:120px;
-    height:50px;
+    width:110px;
+    height:40px;
     border-radius: 5px;
     background: none;
-    border:3px solid #E1E1F3;
+    border:2px solid #E1E1F3;
     font-family: 'Cafe24Oneprettynight';
     font-weight: bold;
     color:#E1E1F3;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
     transition: 1s;
     letter-spacing: 3px;

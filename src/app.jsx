@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './app.css';
 import Loding from './components/loding/loding';
 
-function App() {
+function App({ auth }) {
   return (
     <div className="App">
-      <Loding />
+      <Loding auth={auth}/>
     </div>
   );
 }
