@@ -1,0 +1,58 @@
+.title {
+    font-family: 'Cafe24Oneprettynight';
+    color:var(--pointColor);
+    letter-spacing: 5px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.main {
+    background-color: var(--whiteColor);
+    width:60%;
+    height:75%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px 5px rgba(135,116,193,0.15);
+    text-align: center;
+}
+
+.calendar {
+    height:78%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.calendar > div {
+    box-sizing: border-box;
+    padding:10px;
+}
+
+.weekly {
+    width: 25%;
+    background-color: #eee;
+    
+}
+
+.daily {
+    width: 65%;
+    background-color: var(--pointColor);
+}
+
+@media(max-width:800px){
+    .main {
+        width:85%;
+    }   
+}
+
+@media(max-width:500px){
+    .calendar {
+        overflow-y: scroll;
+    }
+    .calendar > div {
+        width:90%;
+        height:100%;
+    }
+    .calendar::-webkit-scrollbar {
+        display: none;
+    }
+}
