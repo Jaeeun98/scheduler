@@ -1,3 +1,12 @@
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.rightBtn {
+    font-size: 50px;
+}
+
 .title {
     font-family: 'Cafe24Oneprettynight';
     color:var(--pointColor);

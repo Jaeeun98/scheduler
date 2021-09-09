@@ -26,3 +26,9 @@ section {
     justify-content: center;
     align-items: center;
 }
+
+button {
+    background: none;
+    border:none;
+    cursor: pointer;
+}

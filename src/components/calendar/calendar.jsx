@@ -7,9 +7,13 @@ const Calendar = (props) => {
     return(
         <section>
             <main className={styles.main}>
-                <h1 className={styles.title}>09</h1>
+                <header className={styles.header}>
+                    <button className={`${styles.btn} ${styles.leftBtn}`}>&#5176;</button>
+                        <h1 className={styles.title}>09</h1>
+                    <button className={`styles.btn styles.rightBtn`}>&#5171;</button>
+                </header>
+                
                 <div className={styles.calendar}>
-                    
                     <div className={styles.daily}>
                         <Daily />
                     </div>
