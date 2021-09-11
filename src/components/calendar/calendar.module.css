@@ -1,24 +1,7 @@
-.header {
-    display: flex;
-    justify-content: center;
-}
-
-.rightBtn {
-    font-size: 50px;
-}
-
-.title {
-    font-family: 'Cafe24Oneprettynight';
-    color:var(--pointColor);
-    letter-spacing: 5px;
-    font-size: 30px;
-    font-weight: 900;
-}
-
 .main {
     background-color: var(--whiteColor);
     width:60%;
-    height:75%;
+    height:85%;
     border-radius: 10px;
     box-shadow: 1px 1px 15px 5px rgba(135,116,193,0.15);
     text-align: center;
@@ -33,7 +16,6 @@
 
 .calendar > div {
     box-sizing: border-box;
-    padding:10px;
 }
 
 .weekly {
@@ -44,7 +26,7 @@
 
 .daily {
     width: 65%;
-    background-color: var(--pointColor);
+    
 }
 
 @media(max-width:800px){

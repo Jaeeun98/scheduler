@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    color:var(--pointColor)
+}
+
+.title {
+    font-family: 'Cafe24Oneprettynight';
+    color:var(--pointColor);
+    letter-spacing: 5px;
+    font-size: 30px;
+    font-weight: 900;
+    cursor: pointer;
+}
