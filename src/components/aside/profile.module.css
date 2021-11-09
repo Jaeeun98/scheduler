@@ -1,0 +1,48 @@
+.profile {
+    padding:1rem;
+}
+
+.title {
+    font-size:25px;
+    font-weight: bold;
+    padding:1rem 0;
+    text-shadow: 2px 2px 0 #bcbcbc;
+}
+
+.text {
+    font-size:17px;
+        padding:1rem;
+        border-radius:5px;
+        width:90%;
+        margin:auto;
+        font-weight:bold;
+}
+
+.img {
+    width:110px;
+    height:110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:auto;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.img img {
+    width:100%;
+}
+
+.name {
+    padding-bottom:1rem;
+    cursor: default;
+}
+.form {
+    width:100%;
+    display: flex;
+    flex-direction :column;
+}
+
+.form input {
+    margin:0.5rem 0;
+    padding:0.5rem;
+}

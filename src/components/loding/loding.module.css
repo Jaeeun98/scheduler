@@ -1,3 +1,7 @@
+.section {
+    background-color: var(--backColor);
+}
+
 .title { 
     font-family: 'SDSamliphopangche_Outline';
     font-size: 6em; 
@@ -10,7 +14,6 @@
 }
 
 .subTitle {
-    font-family: 'Cafe24Oneprettynight';
     fill: var(--backColor);
     font-size: 25px;
     font-weight: 500;
@@ -41,7 +44,6 @@
     border-radius: 5px;
     background: none;
     border:2px solid var(--backColor);
-    font-family: 'Cafe24Oneprettynight';
     font-weight: bold;
     color:var(--whiteColor);
     font-size: 20px;
@@ -51,14 +53,13 @@
     animation: loginAni 1s linear;
     animation-delay : 4s;
     animation-fill-mode : forwards;
-    z-index: -1;
+    opacity: 0;
 }
 
 
 @keyframes loginAni { 
-    
     100% { 
-        z-index: 1;
+        opacity: 1;
     } 
 }
 
