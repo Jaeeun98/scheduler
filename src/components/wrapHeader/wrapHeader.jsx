@@ -9,7 +9,6 @@ const WrapHeader = (props) => {
         display:flex;
         padding:1rem;
         justify-content: space-between;
-        cursor:pointer;
     `
     const Btn = styled.button`
         color:${props => props.theme.color};

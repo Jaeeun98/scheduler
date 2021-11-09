@@ -18,7 +18,6 @@ const Profile = (props) => {
     const Btn = styled.button`
         background:${props => props.theme.back};
         color:${props => props.theme.color};
-        border-radius:5px;
         padding:0.7rem;
         font-weight:bold;
         font-size:17px;
@@ -30,7 +29,6 @@ const Profile = (props) => {
 
     return(
         <div className={styles.profile}>
-            <div className={styles.title}>YOUR PROFILE</div>
             <div className={styles.img} onClick={openModal}>
                 <img src='./ex.jpg' alt='profileImg' />
             </div>

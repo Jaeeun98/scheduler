@@ -12,7 +12,7 @@ const Aside = (props) => {
         text-align : center;
         font-size:20px;
         position:relative;
-        padding-bottom:1rem;
+        padding:1rem 0;
     `
     return(
         <Aside>

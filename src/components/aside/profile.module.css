@@ -2,20 +2,13 @@
     padding:1rem;
 }
 
-.title {
-    font-size:25px;
-    font-weight: bold;
-    padding:1rem 0;
-    text-shadow: 2px 2px 0 #bcbcbc;
-}
-
 .text {
     font-size:17px;
-        padding:1rem;
-        border-radius:5px;
-        width:90%;
-        margin:auto;
-        font-weight:bold;
+    padding:1rem;
+    border-radius:5px;
+    width:90%;
+    margin:auto;
+    font-weight:bold;
 }
 
 .img {

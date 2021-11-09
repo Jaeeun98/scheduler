@@ -1,10 +1,12 @@
 .logo {
-    font-family: 'SDSamliphopangche_Outline';
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
     font-size:25px;
     font-weight: bold;
     letter-spacing: 2px;
+    cursor: default;
 }
 
 .right {
     display: flex;
+
 }

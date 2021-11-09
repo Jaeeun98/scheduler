@@ -21,21 +21,27 @@ const Weekly = (props) => {
         width: 15px;
         height:15px;
         background:${props => props.theme.back};
-        
         border-radius: 50%;
+    `
+    const InputBtn = styled.button`
+        padding:5px;
+        background:${props => props.theme.point};
+        color:${props => props.theme.color};
     `
 
     return(
         <div className={styles.weekly}>
             <div className={styles.title}>WEEKLY</div>
+            <form>
+                <input type='text' className={styles.inputText} />
+                <InputBtn type='submit'>Add</InputBtn>
+            </form>
             <Ul>
                 {data.map(list => 
                     <li key={list.id} className={styles.li}>
                         <CheckBox className={styles.checkBox}></CheckBox>
                         <span>{list.todo}</span>
-                        <button>
-                            x
-                        </button>
+                        <button>x</button>
                     </li>
                 )}
             </Ul>

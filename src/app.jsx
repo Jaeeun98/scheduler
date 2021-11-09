@@ -14,14 +14,14 @@ function App({ auth }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <div className='App'>
         <GlobalStyle />
         <Router>
           <Switch>
-            <Route path="/" exact>
+            <Route path='/' exact>
               <Loding auth={auth} />
             </Route>
-            <Route path="/calendar">
+            <Route path='/calendar'>
               <Wrap />
             </Route>
           </Switch>

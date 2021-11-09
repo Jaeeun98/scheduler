@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { Route } from 'react-router';
 import Aside from '../aside/aside';
 import Daily from '../daily/daily';
-import Header from '../header/header';
-import Weekly from '../weekly/weekly';
+import Monthly from '../monthly/monthly';
 import WrapHeader from '../wrapHeader/wrapHeader';
 import styles from  './wrap.module.css'
 
@@ -11,10 +10,16 @@ const Wrap = (props) => {
     return(
         <div className={styles.wrap}>
             <WrapHeader />
-            <Aside />
+            <main className={styles.main}>
+                <Aside />
+                <Route path='/calendar' exact >
+                    <Monthly />
+                </Route>
+                <Route path='/daily'>
+                    <Daily />
+                </Route>
+            </main>
         </div>
-
-        
     )
 }
 export default Wrap;
