@@ -1,0 +1,36 @@
+.section {
+    height:90vh;
+}
+
+.title {
+    margin:10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 3rem;
+}
+
+.li {
+    width:14%;
+    height:18%;
+    cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding-left:5px;
+}
+
+.week {
+    cursor: default;
+    text-align: center;
+    height:10px;
+    padding:1rem;
+    border-bottom: 1px solid #eee;
+    line-height: 1px;
+}

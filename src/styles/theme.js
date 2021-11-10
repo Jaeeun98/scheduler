@@ -3,6 +3,7 @@ export const light = {
     color : '#fff',
     point : '#8774c1',
     text : '#555',
+    sub : '#ccc'
 }
 
 export const dark = {
