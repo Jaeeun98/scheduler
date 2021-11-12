@@ -1,12 +1,13 @@
-import { Route } from 'react-router';
+import { Route, useRouteMatch } from 'react-router';
 import Aside from '../aside/aside';
 import Daily from '../daily/daily';
 import Monthly from '../monthly/monthly';
 import WrapHeader from '../wrapHeader/wrapHeader';
-import styles from  './wrap.module.css'
-
+import styles from  './wrap.module.css';
 
 const Wrap = (props) => {
+    const match = useRouteMatch();
+    console.log(match);
     return(
         <div className={styles.wrap}>
             <WrapHeader />

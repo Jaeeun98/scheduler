@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import styles from './header.module.css'
-import { now } from '../../days/calendar';
+
 
 const Header = (props) => {
     const Btn = styled.button`
