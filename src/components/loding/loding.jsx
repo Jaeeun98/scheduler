@@ -1,23 +1,30 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
+import { idSave } from '../../redux/userData';
 import styles from './loding.module.css';
 
 const Loding = ({auth}) => {
-
     const history = useHistory();
+    const userId = useSelector(state => state.id);
+    const dispatch = useDispatch();
+
+    console.log(userId);
+
 
     const login = () => {
         auth.login()
         .then(user => {
-            const name = user.user.displayName;
+            //const name = user.user.displayName;
             const email = user.user.email;
 
-            nextPage(name, email);
+            dispatch(idSave(email))
+            nextPage();
         });
     }
 
-    const nextPage = (name, email) => {
-        name && email && history.push('/calendar');
+    const nextPage = () => {
+        history.push('/calendar');
     }
     
     return(

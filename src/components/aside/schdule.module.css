@@ -1,13 +1,24 @@
-.weekly {
-    padding-bottom:1rem;
+.schdule {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputDate {
+    width:70%;
+    padding:10px;
+    border-radius: 5px;
+    border:none;
+    margin:5px;
 }
 
 .inputText {
     width:70%;
-    padding:5px;
+    padding:10px;
     border:none;
     border-radius: 5px;
-    margin:0 10px 10px 0;
+    margin:1rem 0; 
 }
 
 .title {

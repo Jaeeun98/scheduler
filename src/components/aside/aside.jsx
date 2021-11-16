@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Profile from './profile';
-import Weekly from './weekly';
+import Schdule from './schduleAdd';
 
 const Aside = (props) => {
     const Aside = styled.aside`
         color:${props => props.theme.color};
         background:${props => props.theme.back};
         width:25%;
-        height:100%;
+        height:100vh;
         text-align : center;
         font-size:20px;
         position:relative;
@@ -18,7 +18,7 @@ const Aside = (props) => {
         <Aside>
             <Profile />
             <hr/>
-            <Weekly />
+            <Schdule />
         </Aside>
     )
 }

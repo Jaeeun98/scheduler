@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/globalStyles';
 import Wrap from './components/wrap/wrap';
 import Loding from './components/loding/loding';
-import {light, dark, font} from './styles/theme';
+import {light, dark} from './styles/theme';
 import { useState } from 'react';
 
 function App({ auth }) {
