@@ -1,24 +1,23 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { idSave } from '../../redux/userData';
 import styles from './loding.module.css';
 
-const Loding = ({auth}) => {
+const Loding = ({auth, fireData}) => {
     const history = useHistory();
-    const userId = useSelector(state => state.id);
     const dispatch = useDispatch();
-
-    console.log(userId);
-
 
     const login = () => {
         auth.login()
         .then(user => {
-            //const name = user.user.displayName;
-            const email = user.user.email;
+            const data = {
+                id : user.user.uid,
+                email : user.user.email
+            }
 
-            dispatch(idSave(email))
+            dispatch(idSave(data));
+            fireData.userAdd(user.user.uid, user.user.email);
             nextPage();
         });
     }

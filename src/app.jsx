@@ -7,7 +7,7 @@ import Loding from './components/loding/loding';
 import {light, dark} from './styles/theme';
 import { useState } from 'react';
 
-function App({ auth }) {
+function App({ auth, fireData }) {
   
   const [theme, setTheme] = useState(light);
 
@@ -19,7 +19,7 @@ function App({ auth }) {
         <Router>
           <Switch>
             <Route path='/' exact>
-              <Loding auth={auth} />
+              <Loding auth={auth} fireData={fireData} />
             </Route>
             <Route path='/calendar'>
               <Wrap />

@@ -6,13 +6,15 @@ import Auth from './server/auth';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import userData from './redux/userData';
+import FireData from './server/database'
 const auth = new Auth();
+const fireData = new FireData();
 const store = createStore(userData);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App auth={auth}/>
+      <App auth={auth} fireData={fireData}/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

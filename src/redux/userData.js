@@ -1,11 +1,12 @@
 const ID_SAVE = 'userData/ID_SAVE';  //user id 저장
 //const ID_DEL = 'userData/ID_DEL';  //user id 삭제(회원 탈퇴), logout
 
-export const idSave = id => ({type : ID_SAVE, id});
+export const idSave = data => ({type : ID_SAVE, data});
 //export const idDel = id => ({type : ID_DEL, id});
 
 const initialState = {
     id : '',
+    email : ''
 }
 
 export default function userData(state = initialState, action){
@@ -13,7 +14,8 @@ export default function userData(state = initialState, action){
         case ID_SAVE:
             return {
                 ...state,
-                id : action.id
+                id : action.data.id,
+                email : action.data.email
             };
             break;
             

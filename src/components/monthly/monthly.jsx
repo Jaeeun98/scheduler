@@ -8,7 +8,9 @@ import { useSelector } from 'react-redux';
 
 const Section = (props) => {
     const userId = useSelector(state => state.id);
+    const userEmail = useSelector(state => state.email);
     console.log(userId);
+    console.log(userEmail);
 
     const StyledSection = styled.section`
         height : 90vh;
