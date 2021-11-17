@@ -18,6 +18,7 @@ const WrapHeader = (props) => {
         <Header>
             <div className={styles.logo}>MyDiary</div>
             <div className={styles.right}>
+                <Btn>회원탈퇴</Btn>
                 <Btn>Logout</Btn>
                 <Btn>Dark</Btn>
             </div>
