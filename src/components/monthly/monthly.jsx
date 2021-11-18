@@ -70,7 +70,14 @@ const Section = (props) => {
                         titleFormat: { year: 'numeric', month: 'short', day:'2-digit'}
                     }
                 }}
-
+                events={[
+                    {
+                        title : 'the Title',
+                        start : '2021-11-19T00:30',
+                        end : '2021-11-20T00:30',
+                        allDay : true,
+                    }
+                ]}
                 navLinks='true'  
                 
             />

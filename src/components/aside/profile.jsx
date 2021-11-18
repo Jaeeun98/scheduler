@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import styles from './profile.module.css';
 
-const Profile = (props) => {
+const Profile = ({profileAdd}) => {
     const [modal, setModal] = useState();
+    const [file, setFile] = useState('');
 
     const Modal = styled.div`
         width:90%;
@@ -27,6 +28,24 @@ const Profile = (props) => {
         setModal('open');
     }
 
+    const inputForm = e => {
+        e.preventDefault();
+        const url = e.target[0].value;
+        const name = e.target[1].value;
+        const aim = e.target[2].value;
+
+        for(let i=0; i<3; i++){
+            e.target[i].value = '';
+        }
+
+        profileAdd(url, name, aim);
+        setModal(false);
+    }
+
+    const fileAdd = e => {
+        setFile(e.target.value);
+    }
+
     return(
         <div className={styles.profile}>
             <div className={styles.img} onClick={openModal}>
@@ -38,10 +57,10 @@ const Profile = (props) => {
             </div>
             {modal && 
                 <Modal>
-                    <form className={styles.form}>
-                        <input type='file' />
-                        <input type='text' placeholder='이름을 입력해 주세요' />
-                        <input type='text' placeholder='목표를 입력해 주세요' />
+                    <form className={styles.modalForm} onSubmit={inputForm}>
+                        <input type='file' accept='image/*' onChange={fileAdd} name={file} required />
+                        <input type='text' placeholder='이름을 입력해 주세요' required/>
+                        <input type='text' placeholder='목표를 입력해 주세요' required/>
                         <Btn type='submit'>완료</Btn>
                     </form>
                 </Modal>

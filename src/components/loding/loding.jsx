@@ -9,18 +9,17 @@ const Loding = ({auth, fireData}) => {
         auth.login()
         .then(user => {
             const userId = user.user.uid;
-            const userEmail = user.user.email
+            const userEmail = user.user.email;
             fireData.userAdd(userId, userEmail);
-            nextPage(userId, userEmail);
+            nextPage(userId);
         });
     }
 
-    const nextPage = (id, email) => {
+    const nextPage = (id) => {
         history.push({
             pathname : '/calendar',
             state : {
                 userId : id,
-                userEmail : email
             }
         })
     }
