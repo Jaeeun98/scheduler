@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.file {
+    display:flex;
+    align-items: center;
+}
+
+.fileText {
+    padding:0.5rem;
+}
+
 .text {
     font-size:17px;
     padding:1rem;
@@ -12,6 +21,10 @@
     width:90%;
     margin:auto;
     font-weight:bold;
+}
+
+.input {
+    display:none;
 }
 
 .img {

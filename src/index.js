@@ -3,19 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
 import Auth from './server/auth';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import userData from './redux/userData';
-import FireData from './server/database'
+import FireData from './server/database';
+import ImgStorage from './server/storage'
 const auth = new Auth();
 const fireData = new FireData();
-const store = createStore(userData);
+const imgStorage = new ImgStorage();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App auth={auth} fireData={fireData}/>
-    </Provider>
+      <App auth={auth} fireData={fireData} imgStorage={imgStorage}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

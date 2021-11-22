@@ -1,4 +1,4 @@
-import { set, ref } from "@firebase/database";
+import { set, ref, get, child, onValue } from "@firebase/database";
 import { db } from "./firebase";
 
 class FireData {
@@ -18,12 +18,23 @@ class FireData {
         })
     }
 
-    userProfileAdd(userId, url, name, aim){
+    userProfileAdd(userId, fileUrl, fileName, name, aim){
         set(ref(db, `users/${userId}/profile`), {
-            url : url,
+            fileUrl : fileUrl,
+            fileName : fileName,
             name : name,
             aim : aim,
         })
+    }
+
+    userProfileGet(userId, onUpdate){
+        const dbRef = ref(db, `users/${userId}/profile`);
+        onValue(dbRef, async snapshot => {
+            const value  = await snapshot.val();
+            value && onUpdate(value);
+        })
+
+        
     }
 }
 

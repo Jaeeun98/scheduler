@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Profile from './profile';
 import Schdule from './schduleAdd';
 
-const Aside = ({ scheduleAdd, profileAdd }) => {
+const Aside = ({ scheduleAdd, profileAdd, profile}) => {
     const Aside = styled.aside`
         color:${props => props.theme.color};
         background:${props => props.theme.back};
@@ -16,7 +16,7 @@ const Aside = ({ scheduleAdd, profileAdd }) => {
     `
     return(
         <Aside>
-            <Profile profileAdd={profileAdd}/>
+            <Profile profileAdd={profileAdd} profile={profile} />
             <hr/>
             <Schdule scheduleAdd={scheduleAdd}/>
         </Aside>

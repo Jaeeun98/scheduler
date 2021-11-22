@@ -7,9 +7,6 @@ import styled from 'styled-components';
 
 
 const Section = (props) => {
-
-
-
     const StyledSection = styled.section`
         height : 90vh;
         .fc {

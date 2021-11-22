@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import styles from './profile.module.css';
 
-const Profile = ({profileAdd}) => {
+const Profile = ({ profileAdd, profile }) => {
     const [modal, setModal] = useState();
-    const [file, setFile] = useState('');
+    const [file, setFile] = useState(null);
 
+    const inputRef = useRef();
+    console.log(profile);
     const Modal = styled.div`
         width:90%;
         height:auto;
@@ -23,44 +25,56 @@ const Profile = ({profileAdd}) => {
         font-weight:bold;
         font-size:17px;
     `  
+    const FileBtn = styled.button`
+        width:60%;
+        height:30px;
+        background:${props => props.theme.point};
+        color:${props => props.theme.color}
+    `
 
     const openModal = () => {
         setModal('open');
     }
 
-    const inputForm = e => {
+    const inputForm = async e => {
         e.preventDefault();
-        const url = e.target[0].value;
-        const name = e.target[1].value;
-        const aim = e.target[2].value;
+        const name = e.target[2].value;
+        const aim = e.target[3].value;
 
+        await profileAdd(file, name, aim);
         for(let i=0; i<3; i++){
             e.target[i].value = '';
         }
-
-        profileAdd(url, name, aim);
         setModal(false);
     }
 
+    const btnClick = (e) => {
+        e.preventDefault();
+        inputRef.current.click();
+    }
     const fileAdd = e => {
-        setFile(e.target.value);
+        setFile(e.target.files[0]);
     }
 
     return(
         <div className={styles.profile}>
             <div className={styles.img} onClick={openModal}>
-                <img src='./ex.jpg' alt='profileImg' />
+                <img src={profile.fileUrl} alt={`${profile.fileName}Img`} />
             </div>
             <div className={styles.text}>
-                <p className={styles.name}>Name : 권재은</p>
-                <p>'인생을 열심히 살자'</p>
+                <p className={styles.name}>Name : {profile.name}</p>
+                <p>{profile.aim}</p>
             </div>
-            {modal && 
+            {modal &&
                 <Modal>
                     <form className={styles.modalForm} onSubmit={inputForm}>
-                        <input type='file' accept='image/*' onChange={fileAdd} name={file} required />
-                        <input type='text' placeholder='이름을 입력해 주세요' required/>
-                        <input type='text' placeholder='목표를 입력해 주세요' required/>
+                        <div className={styles.file}>
+                            <input ref={inputRef} type='file' accept='image/*' onChange={fileAdd} name='file' className={styles.input}/>
+                            <FileBtn onClick={btnClick} className={styles.btn}>파일 입력</FileBtn>
+                            <p className={styles.fileText}>{file ? file.name : 'No'}</p>
+                        </div>
+                        <input type='text' placeholder='이름을 입력해 주세요' required />
+                        <input type='text' placeholder='목표를 입력해 주세요' required />
                         <Btn type='submit'>완료</Btn>
                     </form>
                 </Modal>
