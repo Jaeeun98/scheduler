@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import styles from './loding.module.css';
 
@@ -9,8 +9,6 @@ const Loding = ({auth, fireData}) => {
         auth.login()
         .then(user => {
             const userId = user.user.uid;
-            const userEmail = user.user.email;
-            fireData.userAdd(userId, userEmail);
             nextPage(userId);
         });
     }
@@ -23,6 +21,12 @@ const Loding = ({auth, fireData}) => {
             }
         })
     }
+
+    useEffect(() => {
+        auth.getAuth(user => {
+            user && nextPage(user.uid);
+        })
+    }, [])
     
     return(
         <section className={styles.section}>

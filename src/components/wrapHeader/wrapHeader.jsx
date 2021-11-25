@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './wrapHeader.module.css';
 import styled from 'styled-components';
 
-const WrapHeader = (props) => {
+const WrapHeader = ({ logout }) => {
     const Header = styled.header`
         background:${props => props.theme.point};
         color:${props => props.theme.color};
@@ -18,8 +18,7 @@ const WrapHeader = (props) => {
         <Header>
             <div className={styles.logo}>MyDiary</div>
             <div className={styles.right}>
-                <Btn>회원탈퇴</Btn>
-                <Btn>Logout</Btn>
+                <Btn onClick={logout}>Logout</Btn>
                 <Btn>Dark</Btn>
             </div>
         </Header>

@@ -22,7 +22,7 @@ function App({ auth, fireData, imgStorage }) {
               <Loding auth={auth} fireData={fireData}  />
             </Route>
             <Route path='/calendar'>
-              <Wrap fireData={fireData} imgStorage={imgStorage}/>
+              <Wrap auth={auth} fireData={fireData} imgStorage={imgStorage}/>
             </Route>
           </Switch>
         </Router>

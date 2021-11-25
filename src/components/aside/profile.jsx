@@ -7,7 +7,6 @@ const Profile = ({ profileAdd, profile }) => {
     const [file, setFile] = useState(null);
 
     const inputRef = useRef();
-    console.log(profile);
     const Modal = styled.div`
         width:90%;
         height:auto;
@@ -59,11 +58,11 @@ const Profile = ({ profileAdd, profile }) => {
     return(
         <div className={styles.profile}>
             <div className={styles.img} onClick={openModal}>
-                <img src={profile.fileUrl} alt={`${profile.fileName}Img`} />
+                <img src={profile.fileUrl} alt={`${profile.fileName}Img`} className={styles.img}/>
             </div>
             <div className={styles.text}>
-                <p className={styles.name}>Name : {profile.name}</p>
-                <p>{profile.aim}</p>
+                <p className={styles.name}>{profile ? profile.name : '이름'}</p>
+                <p>{profile ? profile.aim : '목표' }</p>
             </div>
             {modal &&
                 <Modal>

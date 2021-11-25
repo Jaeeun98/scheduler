@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.img {
+    background: #fff;
+}
+
 .file {
     display:flex;
     align-items: center;

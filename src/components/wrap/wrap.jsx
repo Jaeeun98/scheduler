@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Aside from '../aside/aside';
 import Monthly from '../monthly/monthly';
 import WrapHeader from '../wrapHeader/wrapHeader';
 import styles from  './wrap.module.css';
-import { useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 
-const Wrap = ({ fireData, imgStorage }) => {
-    const location = useLocation();
-    const [userId, setUserId] = useState('');
+const Wrap = ({ auth, fireData, imgStorage }) => {
+    const history = useHistory();
+    const historyState = history?.location?.state;
+    const [userId, setUserId] = useState(historyState && historyState.userId);
     const [profile, setProfile] = useState('');
 
     useEffect(() => {
-        setUserId(location.state.userId);
+        auth.getAuth(user => {
+            user ? setUserId(user.uid) : history.push('/');
+        }) 
     }, [])
 
     useEffect(() => {
-        if(!userId) return;
-        const read = fireData.userProfileGet(userId, profile => {
-            setProfile(profile);
-        });
-        return () => read();
+        if(!userId) return
 
+        const read = () => {
+            fireData.userProfileGet(userId, profile => {
+                setProfile(profile);
+            })
+        } 
+        return read();    
     }, [userId, fireData])
 
     const scheduleAdd = (title, start, end, allDay) => {
@@ -36,9 +41,13 @@ const Wrap = ({ fireData, imgStorage }) => {
         await fireData.userProfileAdd(userId, fileUrl, fileName, name, aim);
     }
 
+    const logout = useCallback(() => {
+        auth.logout();
+    }, [auth])
+
     return(
         <div className={styles.wrap}>
-            <WrapHeader />
+            <WrapHeader logout={logout} />
             <main className={styles.main}>
                 <Aside 
                     scheduleAdd={scheduleAdd} 
