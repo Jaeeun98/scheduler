@@ -3,6 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import styled from 'styled-components';
 
 
@@ -17,12 +18,22 @@ const Section = ({ schedule }) => {
         ))
         setEvent(data);
     }, [schedule])
+
+    const schduleClick = e => {
+        console.log(e);
+    }
     
     const StyledSection = styled.section`
         height : 90vh;
         .fc {
             width:90%;
             height:80vh;
+        }
+        .fc .fc-day-sun {
+            color:red;
+        }
+        .fc .fc-day-sat {
+            color:blue;
         }
         .fc .fc-button-primary {
             background:none;
@@ -49,12 +60,15 @@ const Section = ({ schedule }) => {
         .fc--button {
             display:none;
         }
+        .google {
+            color : red;
+        }
     `
 
     return (
         <StyledSection>
             <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
+                plugins={[dayGridPlugin, timeGridPlugin, listPlugin, googleCalendarPlugin]}
                 initialView="dayGridMonth"
                 customButtons={{
                     diaryBtn:{
@@ -79,6 +93,16 @@ const Section = ({ schedule }) => {
                     }
                 }}
                 events={event}
+                eventClick={
+                    schduleClick
+                }
+                googleCalendarApiKey={process.env.REACT_APP_GOOGLE_API_KEY}
+                eventSources={{
+                    textColor : 'red',
+                    backgroundColor:'#fff',
+                    borderColor:'#fff',
+                    googleCalendarId : 'qduatr3seur835pk4aolok2900@group.calendar.google.com'
+                }}
                 navLinks='true'  
                 
             />

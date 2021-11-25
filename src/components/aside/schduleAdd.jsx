@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import styles from './schdule.module.css';
+import styles from './schduleAdd.module.css';
 
 const Schdule = ({ scheduleAdd }) => {
 
