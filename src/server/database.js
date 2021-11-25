@@ -18,6 +18,8 @@ class FireData {
         })
     }
 
+    
+
     userProfileAdd(userId, fileUrl, fileName, name, aim){
         set(ref(db, `users/${userId}/profile`), {
             fileUrl : fileUrl,
@@ -27,8 +29,8 @@ class FireData {
         })
     }
 
-    userProfileGet(userId, onUpdate){
-        const dbRef = ref(db, `users/${userId}/profile`);
+    userDataGet(userId, onUpdate){
+        const dbRef = ref(db, `users/${userId}`);
         onValue(dbRef, async snapshot => {
             const value  = await snapshot.val();
             value && onUpdate(value);

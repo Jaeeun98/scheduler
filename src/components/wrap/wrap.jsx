@@ -10,6 +10,7 @@ const Wrap = ({ auth, fireData, imgStorage }) => {
     const historyState = history?.location?.state;
     const [userId, setUserId] = useState(historyState && historyState.userId);
     const [profile, setProfile] = useState('');
+    const [schedule, setSchedule] = useState('');
 
     useEffect(() => {
         auth.getAuth(user => {
@@ -21,8 +22,9 @@ const Wrap = ({ auth, fireData, imgStorage }) => {
         if(!userId) return
 
         const read = () => {
-            fireData.userProfileGet(userId, profile => {
-                setProfile(profile);
+            fireData.userDataGet(userId, data => {
+                setProfile(data.profile);
+                setSchedule(data.schedule);
             })
         } 
         return read();    
@@ -54,7 +56,7 @@ const Wrap = ({ auth, fireData, imgStorage }) => {
                     profileAdd={profileAdd}
                     profile={profile} 
                 />
-                <Monthly />
+                <Monthly schedule={schedule}/>
             </main>
         </div>
     )

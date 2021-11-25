@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -6,7 +6,18 @@ import listPlugin from '@fullcalendar/list';
 import styled from 'styled-components';
 
 
-const Section = (props) => {
+const Section = ({ schedule }) => {
+    const [event, setEvent] = useState([]);
+
+    useEffect(() => {
+        if(!schedule) return;
+        let data = [];
+        Object.values(schedule).map(value => (
+            data.push(value)
+        ))
+        setEvent(data);
+    }, [schedule])
+    
     const StyledSection = styled.section`
         height : 90vh;
         .fc {
@@ -67,14 +78,7 @@ const Section = (props) => {
                         titleFormat: { year: 'numeric', month: 'short', day:'2-digit'}
                     }
                 }}
-                events={[
-                    {
-                        title : 'the Title',
-                        start : '2021-11-19T00:30',
-                        end : '2021-11-20T00:30',
-                        allDay : true,
-                    }
-                ]}
+                events={event}
                 navLinks='true'  
                 
             />

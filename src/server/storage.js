@@ -15,22 +15,3 @@ class ImgStorage {
 }
 
 export default ImgStorage;
-
-
-
-/*import { storage } from './firebase';
-import { ref, uploadBytesResumable, uploadString, getDownloadURL } from 'firebase/storage';
-
-class Storage {
-    imgAdd(file){
-        console.log(file.name);
-        const storageRef = ref(storage, `images/${file.name}`);
-        uploadBytesResumable(storageRef, file).then(snapshot => console.log(snapshot))
-
-        
-    }
-}
-
-export default Storage;
-
-*/
