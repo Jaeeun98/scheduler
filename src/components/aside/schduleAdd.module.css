@@ -5,32 +5,6 @@
     align-items: center;
 }
 
-.checkBox {
-    width:100%;
-    display: block;
-    margin-top:5px;
-}
-
-.checkBox > input {
-    margin-right:5px;
-}
-
-.inputDate {
-    width:70%;
-    padding:10px;
-    border-radius: 5px;
-    border:none;
-    margin:5px;
-}
-
-.inputText {
-    width:70%;
-    padding:10px;
-    border:none;
-    border-radius: 5px;
-    margin:1rem 0; 
-}
-
 .title {
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
     font-size:25px;

@@ -1,4 +1,4 @@
-import { set, ref, get, child, onValue } from "@firebase/database";
+import { set, ref, get, child, onValue, remove, update } from "@firebase/database";
 import { db } from "./firebase";
 
 class FireData {
@@ -18,7 +18,19 @@ class FireData {
         })
     }
 
-    
+    userScheduleChange(id, userId, title, start, end, allDay){
+        update(ref(db, `users/${userId}/schedule/${id}`), {
+            id : id,
+            title : title,
+            start : start,
+            end : end,
+            allDay : allDay,
+        })
+    }
+
+    userScheduleDel(userId, id){
+        remove(ref(db, `users/${userId}/schedule/${id}`));
+    }    
 
     userProfileAdd(userId, fileUrl, fileName, name, aim){
         set(ref(db, `users/${userId}/profile`), {

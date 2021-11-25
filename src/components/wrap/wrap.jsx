@@ -35,6 +35,14 @@ const Wrap = ({ auth, fireData, imgStorage }) => {
         fireData.userScheduleAdd(id, userId, title, start, end, allDay);
     }
 
+    const scheduleChange = (id, title, start, end, allDay) => {
+        fireData.userScheduleChange(id, userId, title, start, end, allDay);
+    }
+
+    const scheduleDel = (data) => {
+        fireData.userScheduleDel(userId, data);
+    }
+
     const profileAdd = async (file, name, aim) => {
         const imgData = await imgStorage.imgUpload(file);
         const fileUrl = imgData.url;
@@ -56,7 +64,7 @@ const Wrap = ({ auth, fireData, imgStorage }) => {
                     profileAdd={profileAdd}
                     profile={profile} 
                 />
-                <Monthly schedule={schedule}/>
+                <Monthly schedule={schedule} scheduleChange={scheduleChange} scheduleDel={scheduleDel}/>
             </main>
         </div>
     )

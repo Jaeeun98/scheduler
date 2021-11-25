@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import styles from './schduleAdd.module.css';
+import styled from 'styled-components';
+import Input from './input';
 
 const Schdule = ({ scheduleAdd }) => {
 
@@ -10,13 +11,6 @@ const Schdule = ({ scheduleAdd }) => {
         background:${props => props.theme.point};
         color:${props => props.theme.color};
     `
-    const getToday = () => {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = 1+(date.getMonth());
-        const day = date.getDate();
-        return `${year}-${month}-${day}`
-    }
 
     const inputData = (e) => {
         e.preventDefault();
@@ -30,20 +24,17 @@ const Schdule = ({ scheduleAdd }) => {
             e.target[i].value = '';
         }
     }
-    
+
     return(
         <div className={styles.schedule}>
             <div className={styles.title}>Schedule Add</div>
             <form onSubmit={inputData}>
-                <input type='datetime-local' className={styles.inputDate} defaultValue={getToday()} />
-                <input type='datetime-local' className={styles.inputDate} />
-                <label className={styles.checkBox}><input type='checkbox' name='allDay' value='true'/>All Time</label>
-                <input type='text' className={styles.inputText} placeholder='할 일을 입력해 주세요.' required/>
+                <Input />
                 <InputBtn type='submit'>Add</InputBtn>
             </form>
+            
         </div>
     )
-    
 }
 
 export default Schdule;
