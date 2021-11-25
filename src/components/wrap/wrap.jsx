@@ -5,7 +5,7 @@ import WrapHeader from '../wrapHeader/wrapHeader';
 import styles from  './wrap.module.css';
 import { useHistory } from 'react-router';
 
-const Wrap = ({ auth, fireData, imgStorage }) => {
+const Wrap = ({ auth, fireData, imgStorage, colorMode }) => {
     const history = useHistory();
     const historyState = history?.location?.state;
     const [userId, setUserId] = useState(historyState && historyState.userId);
@@ -57,7 +57,7 @@ const Wrap = ({ auth, fireData, imgStorage }) => {
 
     return(
         <div className={styles.wrap}>
-            <WrapHeader logout={logout} />
+            <WrapHeader logout={logout} colorMode={colorMode}/>
             <main className={styles.main}>
                 <Aside 
                     scheduleAdd={scheduleAdd} 

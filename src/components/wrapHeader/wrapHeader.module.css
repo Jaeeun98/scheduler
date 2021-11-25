@@ -6,6 +6,26 @@
     cursor: default;
 }
 
+.color {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding:0.5rem;
+    border-radius: 5px;;
+}
+
+.light {
+    background: #8774c8;
+}
+
+.brown {
+    background: #4a424a;
+}
+
+.green {
+    background: #839378;
+}
+
 .right {
     display: flex;
 

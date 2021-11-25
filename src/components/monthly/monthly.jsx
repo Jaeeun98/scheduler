@@ -111,29 +111,28 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
             cursor:default;
             color:${props => props.theme.text};
         }
+        .fc-event{
+            cursor: pointer;
+        }
         .fc--button {
             display:none;
+        }
+        .fc .fc-day-today {
+            background:#E1E1F3;
         }
         .google {
             color : red;
         }
     `
-
     return (
         <StyledSection>
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, listPlugin, googleCalendarPlugin]}
                 initialView="dayGridMonth"
-                customButtons={{
-                    diaryBtn:{
-                        text : 'diary',
-                        click:''
-                    }
-                }}
                 headerToolbar = {{
                     start: 'prevYear, prev',
                     center: 'title',   
-                    end: 'today, next, dayGridMonth, listWeek, timeGridDay, diaryBtn, nextYear',
+                    end: 'today, next, dayGridMonth, listWeek, timeGridDay, nextYear',
                 }}
                 views={{
                     dayGridMonth: { 
@@ -144,8 +143,10 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
                     },
                     timeGrid: {
                         titleFormat: { year: 'numeric', month: 'short', day:'2-digit'}
-                    }
+                    },
                 }}
+                eventBackgroundColor={'#8774c1'}
+                eventBorderColor={'#8774c1'}
                 events={event}
                 eventClick={
                     schduleClick
