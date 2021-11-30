@@ -62,6 +62,11 @@ section {
     justify-content: center;
     align-items: center;
 }
+
+hr {
+    border:1px solid #fff;
+    width:90%;
+}
 `
 
 export default GlobalStyle;

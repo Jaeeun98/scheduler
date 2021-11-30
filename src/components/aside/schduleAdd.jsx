@@ -7,7 +7,7 @@ const Schdule = ({ scheduleAdd }) => {
 
     const InputBtn = styled.button`
         width:77%;
-        padding:10px;
+        padding:10px;y
         background:${props => props.theme.point};
         color:${props => props.theme.color};
     `

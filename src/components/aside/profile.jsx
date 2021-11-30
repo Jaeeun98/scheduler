@@ -9,11 +9,11 @@ const Profile = ({ profileAdd, profile }) => {
     const inputRef = useRef();
     const Modal = styled.div`
         width:90%;
-        height:auto;
+        height:40%;
         background:${props => props.theme.color};
         padding:2rem;
         position: absolute;
-        top:5%;
+        top:3.5%;
         left:5%;
         border-radius:5px;
     `
@@ -44,7 +44,11 @@ const Profile = ({ profileAdd, profile }) => {
         for(let i=0; i<3; i++){
             e.target[i].value = '';
         }
-        setModal(false);
+        modalClose();
+    }
+
+    const modalClose = () => {
+        setModal(false)
     }
 
     const btnClick = (e) => {
@@ -67,6 +71,7 @@ const Profile = ({ profileAdd, profile }) => {
             {modal &&
                 <Modal>
                     <form className={styles.modalForm} onSubmit={inputForm}>
+                        <button className={styles.closeBtn} onClick={modalClose}>X</button>
                         <div className={styles.file}>
                             <input ref={inputRef} type='file' accept='image/*' onChange={fileAdd} name='file' className={styles.input}/>
                             <FileBtn onClick={btnClick} className={styles.btn}>파일 입력</FileBtn>
