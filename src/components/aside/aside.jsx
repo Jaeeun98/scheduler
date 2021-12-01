@@ -1,20 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import styled, { keyframes } from 'styled-components';
 import Profile from './profile';
 import Schdule from './schduleAdd';
 import { AiOutlineMenu } from 'react-icons/ai';
 
-const Aside = ({ scheduleAdd, profileAdd, profile }) => {
-    const [toggle, setToggle] = useState(false);
-
-    console.log(toggle);
-    const FadeOut = keyframes`
+const FadeOut = keyframes`
         0% {}
         100% {
             transform: translateX(-100%);
         }
     `
-
     const FadeIn = keyframes`
         0% {
             transform: translateX(-100%);
@@ -23,23 +18,19 @@ const Aside = ({ scheduleAdd, profileAdd, profile }) => {
             transform: translateX(0);
         }
     `
-
-    const Aside = styled.aside`
+    const AsideComponent = styled.aside`
         position:absolute;
         color:${props => props.theme.color};
         background:${props => props.theme.back};
         width:40%;
         height:100vh;
         text-align : center;
-        font-size:20px;
         padding:1rem 0;
         min-width:230px;
         max-width:400px;
         transition:all 1s;
-        z-index:2;
-        
-
-        animation: ${toggle ? FadeOut : FadeIn} 1s forwards;
+        z-index:3;
+        animation: ${props => props.toggle ? FadeOut : FadeIn} 1s forwards;
 
         .icon {
             position:absolute;
@@ -52,22 +43,23 @@ const Aside = ({ scheduleAdd, profileAdd, profile }) => {
             height:15px;
             border-radius: 50%;
             padding:0.5rem;
-            
         }
-        
     `
 
-    const asideToggle = () => {
+const Aside = ({ scheduleAdd, profileAdd, profile }) => {
+    const [toggle, setToggle] = useState(true);
+
+    const asideToggle = useCallback(() => {
         toggle ? setToggle(false) : setToggle(true);
-    }
+    }, [toggle]);
 
     return(
-        <Aside toggle={toggle}>
+        <AsideComponent toggle={toggle}>
             <AiOutlineMenu className='icon' onClick={asideToggle} />
             <Profile profileAdd={profileAdd} profile={profile} />
             <hr/>
             <Schdule scheduleAdd={scheduleAdd}/>
-        </Aside>
+        </AsideComponent>
     )
 }
 

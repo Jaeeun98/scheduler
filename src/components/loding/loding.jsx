@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import { useCallback } from 'react';
 import { useHistory } from 'react-router';
 import styles from './loding.module.css';
 
-const Loding = ({auth, fireData}) => {
+const Loding = ({auth}) => {
     const history = useHistory();
     
     const login = () => {
@@ -13,20 +14,20 @@ const Loding = ({auth, fireData}) => {
         });
     }
 
-    const nextPage = (id) => {
+    const nextPage = useCallback((id) => {
         history.push({
             pathname : '/calendar',
             state : {
                 userId : id,
             }
         })
-    }
+    }, [history])
 
     useEffect(() => {
         auth.getAuth(user => {
             user && nextPage(user.uid);
         })
-    }, [])
+    }, [auth, nextPage])
     
     return(
         <section className={styles.section}>
@@ -40,7 +41,6 @@ const Loding = ({auth, fireData}) => {
             </svg>
             <button className={styles.login} onClick={login}>로그인</button>
         </section>
-        // https://ordinary-code.tistory.com/25
     )
 }
 

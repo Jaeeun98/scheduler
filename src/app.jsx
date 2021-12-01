@@ -8,7 +8,6 @@ import {brown, green, light} from './styles/theme';
 import { useState } from 'react';
 
 function App({ auth, fireData, imgStorage }) {
-  
   const [theme, setTheme] = useState(light);
 
   const colorMode = color => {
@@ -20,7 +19,6 @@ function App({ auth, fireData, imgStorage }) {
       setTheme(green);
     }
   }
-
 
   return (
     <ThemeProvider theme={theme}>

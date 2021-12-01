@@ -3,14 +3,14 @@ import styles from './schduleAdd.module.css';
 import styled from 'styled-components';
 import Input from './input';
 
-const Schdule = ({ scheduleAdd }) => {
-
-    const InputBtn = styled.button`
+const InputBtn = styled.button`
         width:77%;
         padding:10px;
         background:${props => props.theme.point};
         color:${props => props.theme.color};
     `
+
+const Schdule = ({ scheduleAdd }) => {
 
     const inputData = (e) => {
         e.preventDefault();

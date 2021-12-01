@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -7,48 +7,7 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import styled from 'styled-components';
 import Input from '../aside/input';
 
-const Section = ({ schedule, scheduleChange, scheduleDel }) => {
-    const [event, setEvent] = useState([]);
-    const [modal, setModal] = useState(false);
-    const [data, setData] = useState('');
-
-    useEffect(() => {
-        if(!schedule) return;
-        let data = [];
-        Object.values(schedule).map(value => (
-            data.push(value)
-        ))
-        setEvent(data);
-    }, [schedule])
-
-    const schduleClick = e => {
-        setModal(true);
-        setData(e.event._def.publicId);
-    }
-
-    const modalDel = () => {
-        setModal(false);
-    }
-
-    const schduleChangeClick = e => {
-        e.preventDefault();
-        const start = e.target[1].value;
-        const end = e.target[2].value;
-        const title = e.target[4].value;
-        const allDay = e.target[3].value;
-
-        scheduleChange(data, title, start, end, allDay);
-        modalDel();
-        
-    }
-
-    const schduleDelClick = () => {
-        scheduleDel(data); 
-        modalDel();
-    }
-
-
-    const Modal = styled.form`
+const Modal = styled.form`
         width:30%;
         background:${props => props.theme.back};
         text-align:center;
@@ -57,7 +16,7 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
         z-index:1;
         border-radius:5px;
     `
-    const DelBtn = styled.button`
+const DelBtn = styled.button`
         position: absolute;
         right: 1rem;
         top: 1rem;
@@ -68,15 +27,15 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
         color:${props => props.theme.point}
     `
 
-    const Btn = styled.button`
+const Btn = styled.button`
         width:75%;
         background:${props => props.theme.point};
         color:${props => props.theme.color};
         padding:1rem;
         margin:0.3rem;
     `
-    
-    const StyledSection = styled.section`
+
+const StyledSection = styled.section`
         position:relative;
         height : 90vh;
         .fc {
@@ -142,9 +101,53 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
         .google {
             color : red;
         }
+    `
 
-        
-        `
+const Section = ({ schedule, scheduleChange, scheduleDel }) => {
+    const [event, setEvent] = useState([]);
+    const [modal, setModal] = useState(false);
+    const [data, setData] = useState('');
+
+    useEffect(() => {
+        if(!schedule) return;
+        let data = [];
+        Object.values(schedule).map(value => (
+            data.push(value)
+        ))
+        setEvent(data);
+    }, [schedule])
+
+    const schduleClick = e => {
+        e.jsEvent.preventDefault();
+
+        if(e.event._def.url){
+            return;
+        } else {
+            setModal(true);
+            setData(e.event._def.publicId);
+        } 
+    }
+
+    const modalDel = () => {
+        setModal(false);
+    }
+
+    const schduleChangeClick = e => {
+        e.preventDefault();
+        const start = e.target[1].value;
+        const end = e.target[2].value;
+        const title = e.target[4].value;
+        const allDay = e.target[3].value;
+
+        scheduleChange(data, title, start, end, allDay);
+        modalDel();
+    }
+
+    const schduleDelClick = () => {
+        scheduleDel(data); 
+        modalDel();
+    }
+
     return (
         <StyledSection>
             <FullCalendar
@@ -166,18 +169,20 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
                         titleFormat: { year: 'numeric', month: 'short', day:'2-digit'}
                     },
                 }}
-                
                 events={event}
-                eventClick={
-                    schduleClick
-                }
+                eventClick={schduleClick}
                 googleCalendarApiKey={process.env.REACT_APP_GOOGLE_API_KEY}
-                eventSources={{
-                    textColor : 'red',
-                    backgroundColor:'#fff',
-                    borderColor:'#fff',
-                    googleCalendarId : 'qduatr3seur835pk4aolok2900@group.calendar.google.com'
-                }}
+                eventSources={
+                    [
+                        {
+                            textColor : 'red',
+                            backgroundColor:'#fff',
+                            borderColor:'#fff',
+                            googleCalendarId : 'qduatr3seur835pk4aolok2900@group.calendar.google.com'
+                        }
+                    ]
+
+                    }
                 navLinks='true'  
             />
             {modal &&

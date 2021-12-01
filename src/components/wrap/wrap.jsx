@@ -9,14 +9,14 @@ const Wrap = ({ auth, fireData, imgStorage, colorMode }) => {
     const history = useHistory();
     const historyState = history?.location?.state;
     const [userId, setUserId] = useState(historyState && historyState.userId);
-    const [profile, setProfile] = useState('');
-    const [schedule, setSchedule] = useState('');
+    const [profile, setProfile] = useState([]);
+    const [schedule, setSchedule] = useState([]);
 
     useEffect(() => {
         auth.getAuth(user => {
             user ? setUserId(user.uid) : history.push('/');
         }) 
-    }, [])
+    }, [auth, history])
 
     useEffect(() => {
         if(!userId) return
@@ -39,7 +39,7 @@ const Wrap = ({ auth, fireData, imgStorage, colorMode }) => {
         fireData.userScheduleChange(id, userId, title, start, end, allDay);
     }
 
-    const scheduleDel = (data) => {
+    const scheduleDel = data => {
         fireData.userScheduleDel(userId, data);
     }
 

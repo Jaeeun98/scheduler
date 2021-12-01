@@ -1,4 +1,4 @@
-import { set, ref, get, child, onValue, remove, update } from "@firebase/database";
+import { set, ref, onValue, remove, update } from "@firebase/database";
 import { db } from "./firebase";
 
 class FireData {

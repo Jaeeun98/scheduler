@@ -1,15 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import styles from './profile.module.css';
 
-const Profile = ({ profileAdd, profile }) => {
-    const [modal, setModal] = useState();
-    const [file, setFile] = useState(null);
-
-    const inputRef = useRef();
-    const Modal = styled.div`
+const Modal = styled.div`
         width:90%;
-        height:40%;
+        height:35%;
         background:${props => props.theme.color};
         padding:2rem;
         position: absolute;
@@ -30,20 +25,22 @@ const Profile = ({ profileAdd, profile }) => {
         background:${props => props.theme.point};
         color:${props => props.theme.color}
     `
+const Profile = ({ profileAdd, profile }) => {
+    const [modal, setModal] = useState();
+    const [file, setFile] = useState(null);
+
+    const inputRef = useRef();
 
     const openModal = () => {
-        setModal('open');
+        setModal(true);
     }
 
     const inputForm = async e => {
         e.preventDefault();
-        const name = e.target[2].value;
-        const aim = e.target[3].value;
+        const name = e.target[3].value;
+        const aim = e.target[4].value;
 
         await profileAdd(file, name, aim);
-        for(let i=0; i<3; i++){
-            e.target[i].value = '';
-        }
         modalClose();
     }
 
@@ -83,7 +80,6 @@ const Profile = ({ profileAdd, profile }) => {
                     </form>
                 </Modal>
             }
-            
         </div>
         
     )
