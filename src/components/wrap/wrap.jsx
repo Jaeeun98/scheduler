@@ -11,8 +11,6 @@ const Wrap = ({ auth, fireData, imgStorage, colorMode }) => {
     const [userId, setUserId] = useState(historyState && historyState.userId);
     const [profile, setProfile] = useState('');
     const [schedule, setSchedule] = useState('');
-    const [toggle, setToggle] = useState(false);
-    console.log(toggle);
 
     useEffect(() => {
         auth.getAuth(user => {
@@ -57,10 +55,6 @@ const Wrap = ({ auth, fireData, imgStorage, colorMode }) => {
         auth.logout();
     }, [auth])
 
-    const aideToggle = () => {
-        toggle ? setToggle(false) : setToggle(true);
-    }
-
     return(
         <div className={styles.wrap}>
             <WrapHeader logout={logout} colorMode={colorMode}/>
@@ -69,13 +63,11 @@ const Wrap = ({ auth, fireData, imgStorage, colorMode }) => {
                     scheduleAdd={scheduleAdd} 
                     profileAdd={profileAdd}
                     profile={profile} 
-                    toggle={toggle}
-                />
+             />
                 <Monthly
                     schedule={schedule}
                     scheduleChange={scheduleChange}
                     scheduleDel={scheduleDel}
-                    aideToggle={aideToggle}
                 />
             </main>
         </div>

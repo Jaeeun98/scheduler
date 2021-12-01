@@ -6,10 +6,8 @@ import listPlugin from '@fullcalendar/list';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import styled from 'styled-components';
 import Input from '../aside/input';
-import { AiOutlineMenu } from 'react-icons/ai';
 
-
-const Section = ({ schedule, scheduleChange, scheduleDel, aideToggle }) => {
+const Section = ({ schedule, scheduleChange, scheduleDel }) => {
     const [event, setEvent] = useState([]);
     const [modal, setModal] = useState(false);
     const [data, setData] = useState('');
@@ -132,6 +130,8 @@ const Section = ({ schedule, scheduleChange, scheduleDel, aideToggle }) => {
             background:${props => props.theme.point};
             color:${props => props.theme.color};
             border-radius:50%;
+            text-align:center;
+            width:23px;
         }
         .fc .fc-h-event {
             border:none;
@@ -143,22 +143,10 @@ const Section = ({ schedule, scheduleChange, scheduleDel, aideToggle }) => {
             color : red;
         }
 
-        .icon {
-            position:absolute;
-            top:10px;
-            left:10px;
-            cursor:pointer;
-            color:${props => props.theme.point};
-            border:1px solid ${props => props.theme.point};
-            width:15px;
-            height:15px;
-            border-radius: 50%;
-            padding:0.5rem;
-        }
+        
         `
     return (
         <StyledSection>
-            <AiOutlineMenu className='icon' onClick={aideToggle} />
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, listPlugin, googleCalendarPlugin]}
                 initialView="dayGridMonth"
