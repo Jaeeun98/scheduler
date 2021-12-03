@@ -6,12 +6,12 @@ const Header = styled.header`
         background:${props => props.theme.point};
         color:${props => props.theme.color};
         display:flex;
-        padding:1rem;
+        padding:15px;
         justify-content: space-between;
     `
 const Btn = styled.button`
         color:${props => props.theme.color};
-        padding:0 1rem;
+        padding:0 15px;
     `
 const ColorBtn = styled.button`
         width:15px;

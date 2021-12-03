@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './app';
+import App from './App';
 import Auth from './server/auth';
 import FireData from './server/database';
 import ImgStorage from './server/storage'

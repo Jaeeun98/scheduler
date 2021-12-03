@@ -38,6 +38,7 @@ const Btn = styled.button`
 const StyledSection = styled.section`
         position:relative;
         height : 90vh;
+        //calendar
         .fc {
             width:90%;
             height:80vh;
@@ -180,9 +181,7 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
                             borderColor:'#fff',
                             googleCalendarId : 'qduatr3seur835pk4aolok2900@group.calendar.google.com'
                         }
-                    ]
-
-                    }
+                    ]}
                 navLinks='true'  
             />
             {modal &&
