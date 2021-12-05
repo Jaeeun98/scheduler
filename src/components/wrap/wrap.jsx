@@ -43,13 +43,13 @@ const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode }) => {
         fireData.userScheduleDel(userId, data);
     }
 
-    const profileAdd = async (file, name, aim) => {
+    const profileAdd = useCallback(async (file, name, aim) => {
         const imgData = await imgStorage.imgUpload(file);
         const fileUrl = imgData.url;
         const fileName = imgData.original_filename;
 
         await fireData.userProfileAdd(userId, fileUrl, fileName, name, aim);
-    }
+    }, [fireData, imgStorage, userId]);
 
     const logout = useCallback(() => {
         auth.logout();

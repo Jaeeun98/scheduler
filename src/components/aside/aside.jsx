@@ -5,7 +5,9 @@ import Schdule from './schduleAdd';
 import { AiOutlineMenu } from 'react-icons/ai';
 
 const FadeOut = keyframes`
-        0% {}
+        0% {
+            transform: translateX(0);
+        }
         100% {
             transform: translateX(-100%);
         }
@@ -19,7 +21,21 @@ const FadeOut = keyframes`
         }
     `
     const AsideComponent = styled.aside`
+    .icon {
         position:absolute;
+        top:10px;
+        right:-40px;
+        cursor:pointer;
+        color:${props => props.theme.point};
+        border:1px solid ${props => props.theme.point};
+        width:15px;
+        height:15px;
+        border-radius: 50%;
+        padding:0.5rem;
+    }
+
+        position:absolute;
+        transform: translateX(-100%);
         color:${props => props.theme.color};
         background:${props => props.theme.back};
         width:40%;
@@ -30,29 +46,29 @@ const FadeOut = keyframes`
         max-width:400px;
         transition:all 1s;
         z-index:3;
-        animation: ${props => props.toggle ? FadeOut : FadeIn} 1s forwards;
 
-        .icon {
-            position:absolute;
-            top:10px;
-            right:-40px;
-            cursor:pointer;
-            color:${props => props.theme.point};
-            border:1px solid ${props => props.theme.point};
-            width:15px;
-            height:15px;
-            border-radius: 50%;
-            padding:0.5rem;
-        }
+        
+        animation: ${props => {
+            if(props.toggle === 'undefined'){
+                return;
+            } else if(props.toggle){
+                console.log(props)
+                return FadeOut;
+            } else {
+                return FadeIn;
+            }
+        }} 1s forwards;
+        
     `
 
 const Aside = ({ scheduleAdd, profileAdd, profile }) => {
-    const [toggle, setToggle] = useState(true);
+    const [toggle, setToggle] = useState('undefined');
 
     const asideToggle = useCallback(() => {
         toggle ? setToggle(false) : setToggle(true);
     }, [toggle]);
-    console.log('aside 렌더링')
+    console.log('aside 렌더링');
+    console.log(toggle);
     return(
         <AsideComponent toggle={toggle}>
             <AiOutlineMenu className='icon' onClick={asideToggle} />
