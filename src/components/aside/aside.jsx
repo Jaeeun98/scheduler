@@ -52,7 +52,7 @@ const Aside = ({ scheduleAdd, profileAdd, profile }) => {
     const asideToggle = useCallback(() => {
         toggle ? setToggle(false) : setToggle(true);
     }, [toggle]);
-
+    console.log('aside 렌더링')
     return(
         <AsideComponent toggle={toggle}>
             <AiOutlineMenu className='icon' onClick={asideToggle} />

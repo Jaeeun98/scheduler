@@ -19,7 +19,7 @@ function App({ auth, fireData, imgStorage }) {
       setTheme(green);
     }
   }
-
+  console.log('app 렌더링')
   return (
     <ThemeProvider theme={theme}>
       <div className='App'>

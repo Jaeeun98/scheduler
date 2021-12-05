@@ -25,7 +25,7 @@ const Modal = styled.div`
         background:${props => props.theme.point};
         color:${props => props.theme.color}
     `
-const Profile = ({ profileAdd, profile }) => {
+const Profile = React.memo(({ profileAdd, profile }) => {
     const [modal, setModal] = useState();
     const [file, setFile] = useState(null);
 
@@ -45,7 +45,7 @@ const Profile = ({ profileAdd, profile }) => {
     }
 
     const modalClose = () => {
-        setModal(false)
+        setModal(false);
     }
 
     const btnClick = (e) => {
@@ -55,6 +55,7 @@ const Profile = ({ profileAdd, profile }) => {
     const fileAdd = e => {
         setFile(e.target.files[0]);
     }
+    console.log('프로필 렌더링');
 
     return(
         <div className={styles.profile}>
@@ -83,6 +84,6 @@ const Profile = ({ profileAdd, profile }) => {
         </div>
         
     )
-}
+});
 
 export default Profile;

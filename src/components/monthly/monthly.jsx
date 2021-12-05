@@ -116,7 +116,8 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
             data.push(value)
         ))
         setEvent(data);
-    }, [schedule])
+        console.log('useEffect');
+    }, [schedule]);
 
     const schduleClick = e => {
         e.jsEvent.preventDefault();
@@ -148,7 +149,7 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
         scheduleDel(data); 
         modalDel();
     }
-
+    console.log('monthly 렌더링');
     return (
         <StyledSection>
             <FullCalendar

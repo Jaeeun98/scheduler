@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './input.module.css';
-const Input = () => {
-    
+const Input = React.memo(() => {
+    console.log('input 렌더링');
     return (
         <>
             <input type='datetime-local' className={styles.inputDate} required/>
@@ -10,6 +10,6 @@ const Input = () => {
             <input type='text' className={styles.inputText} placeholder='할 일을 입력해 주세요.' required/> 
         </>
     )
-}
+});
 
 export default Input;

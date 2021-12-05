@@ -9,7 +9,7 @@ const InputBtn = styled.button`
         background:${props => props.theme.point};
         color:${props => props.theme.color};
     `
-
+console.log('스케줄 렌더링');
 const Schdule = ({ scheduleAdd }) => {
 
     const inputData = (e) => {
