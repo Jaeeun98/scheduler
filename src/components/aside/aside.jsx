@@ -46,13 +46,10 @@ const FadeOut = keyframes`
         max-width:400px;
         transition:all 1s;
         z-index:3;
-
-        
         animation: ${props => {
             if(props.toggle === 'undefined'){
                 return;
             } else if(props.toggle){
-                console.log(props)
                 return FadeOut;
             } else {
                 return FadeIn;
@@ -68,7 +65,6 @@ const Aside = ({ scheduleAdd, profileAdd, profile }) => {
         toggle ? setToggle(false) : setToggle(true);
     }, [toggle]);
     console.log('aside 렌더링');
-    console.log(toggle);
     return(
         <AsideComponent toggle={toggle}>
             <AiOutlineMenu className='icon' onClick={asideToggle} />

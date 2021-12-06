@@ -9,9 +9,10 @@ const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode }) => {
     const history = useHistory();
     const historyState = history?.location?.state;
     const [userId, setUserId] = useState(historyState && historyState.userId);
-    const [profile, setProfile] = useState([]);
-    const [schedule, setSchedule] = useState([]);
-
+    const [profile, setProfile] = useState({});
+    const [schedule, setSchedule] = useState({});
+    console.log(profile);
+    console.log(schedule);
     useEffect(() => {
         auth.getAuth(user => {
             user ? setUserId(user.uid) : history.push('/');
@@ -19,15 +20,12 @@ const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode }) => {
     }, [auth, history])
 
     useEffect(() => {
-        if(!userId) return
-        console.log('read');
-        const read = () => {
-            fireData.userDataGet(userId, data => {
+        if(!userId) return;
+        const read = fireData.userDataGet(userId, data => {
                 setProfile(data.profile);
                 setSchedule(data.schedule);
             })
-        } 
-        return () => read();    
+            return () => read();   
     }, [userId, fireData]);
 
     const scheduleAdd = (title, start, end, allDay) => {
