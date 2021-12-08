@@ -38,7 +38,7 @@ const Btn = styled.button`
 const StyledSection = styled.section`
         position:relative;
         height : 90vh;
-        //calendar
+        //calendar   
         .fc {
             width:90%;
             height:80vh;
@@ -113,6 +113,26 @@ const StyledSection = styled.section`
         }
         .google {
             color : red;
+        }
+
+        //media
+        @media screen and (max-width:500px){
+            .fc .fc-toolbar {
+                padding-top: 1rem;
+            }
+            .fc .fc-toolbar-title {
+                font-size:1rem;
+            }
+            .fc .fc-button {
+                padding:0;
+                font-size: 0.8rem;
+            }
+            .fc table {
+                font-size:0.8rem;
+            }
+            .fc .fc-day-today .fc-daygrid-day-number {
+                width:20px;
+            }
         }
     `
 
