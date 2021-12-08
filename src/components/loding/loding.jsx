@@ -8,10 +8,12 @@ const Loding = ({auth}) => {
     
     const login = () => {
         auth.login()
-        .then(user => {
-            const userId = user.user.uid;
+        .then(async user => {
+            const userId = await user.user.uid;
             nextPage(userId);
-        }).catch(alert('아이디/비번을 확인해 주세요'));
+        }).catch(error => {
+            error.code === 'auth/popup-closed-by-user' && alert('아이디/비번을 확인해 주세요');
+        });
     }
 
     const nextPage = useCallback((id) => {

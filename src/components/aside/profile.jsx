@@ -63,7 +63,7 @@ const Profile = React.memo(({ profileAdd, profile }) => {
     return(
         <div className={styles.profile}>
             <div className={styles.img} onClick={openModal}>
-                <img src={profile.fileUrl ? profile.fileUrl : 'apple.png'} alt={`${profile.fileName}Img`} className={styles.img}/>
+                <img src={profile ? profile.fileUrl : 'apple.png'} alt={profile ? `${profile.fileName}Img` : 'defaultImg'} className={styles.img}/>
             </div>
             <div className={styles.text}>
                 <p className={styles.name}>{profile ? profile.name : '이름'}</p>
