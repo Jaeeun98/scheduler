@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './input.module.css';
 const Input = React.memo(() => {
-    console.log('input 렌더링');
     return (
         <>
             <input type='datetime-local' className={styles.inputDate} required/>

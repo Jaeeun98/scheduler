@@ -50,7 +50,7 @@ const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode, theme }) => {
     const logout = useCallback(() => {
         auth.logout();
     }, [auth])
-    console.log('wrap 렌더링');
+
     return(
         <div className={styles.wrap}>
             <WrapHeader logout={logout} colorMode={colorMode}/>

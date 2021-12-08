@@ -57,14 +57,13 @@ const FadeOut = keyframes`
         }} 1s forwards;
         
     `
-
 const Aside = ({ scheduleAdd, profileAdd, profile }) => {
     const [toggle, setToggle] = useState('undefined');
 
     const asideToggle = useCallback(() => {
         toggle ? setToggle(false) : setToggle(true);
     }, [toggle]);
-    console.log('aside 렌더링');
+
     return(
         <AsideComponent toggle={toggle}>
             <AiOutlineMenu className='icon' onClick={asideToggle} />

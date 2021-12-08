@@ -3,11 +3,3 @@
     --backColor: #E1E1F3;
     --whiteColor : #fff;
 }
-
-
-@media screen and (max-width:500px) {
-    body {
-        font-size: 10px;
-    }
-}
-

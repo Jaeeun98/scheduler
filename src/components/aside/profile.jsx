@@ -55,7 +55,6 @@ const Profile = React.memo(({ profileAdd, profile }) => {
     const fileAdd = e => {
         setFile(e.target.files[0]);
     }
-    console.log('프로필 렌더링');
 
     return(
         <div className={styles.profile}>

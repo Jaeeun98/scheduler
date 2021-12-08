@@ -20,7 +20,6 @@ const ColorBtn = styled.button`
     `
 
 const WrapHeader = React.memo(({ logout, colorMode }) => {
-    console.log('wrapHeader 렌더링');
     return(
         <Header>
             <div className={styles.logo}>MyDiary</div>
