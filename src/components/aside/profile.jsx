@@ -37,11 +37,15 @@ const Profile = React.memo(({ profileAdd, profile }) => {
 
     const inputForm = async e => {
         e.preventDefault();
-        const name = e.target[3].value;
-        const aim = e.target[4].value;
-
-        await profileAdd(file, name, aim);
-        modalClose();
+        if(!file){
+            alert('프로필 사진을 넣어주세요'); 
+        } else {
+            const name = e.target[3].value;
+            const aim = e.target[4].value;
+        
+            await profileAdd(file, name, aim);
+            modalClose();
+        }
     }
 
     const modalClose = () => {
@@ -53,13 +57,13 @@ const Profile = React.memo(({ profileAdd, profile }) => {
         inputRef.current.click();
     }
     const fileAdd = e => {
-        setFile(e.target.files[0]);
+         setFile(e.target.files[0]);
     }
 
     return(
         <div className={styles.profile}>
             <div className={styles.img} onClick={openModal}>
-                <img src={profile.fileUrl} alt={`${profile.fileName}Img`} className={styles.img}/>
+                <img src={profile.fileUrl ? profile.fileUrl : 'apple.png'} alt={`${profile.fileName}Img`} className={styles.img}/>
             </div>
             <div className={styles.text}>
                 <p className={styles.name}>{profile ? profile.name : '이름'}</p>
@@ -70,7 +74,7 @@ const Profile = React.memo(({ profileAdd, profile }) => {
                     <form className={styles.modalForm} onSubmit={inputForm}>
                         <button className={styles.closeBtn} onClick={modalClose}>X</button>
                         <div className={styles.file}>
-                            <input ref={inputRef} type='file' accept='image/*' onChange={fileAdd} name='file' className={styles.input}/>
+                            <input ref={inputRef} type='file' accept='image/*' onChange={fileAdd} name='file' className={styles.input} />
                             <FileBtn onClick={btnClick} className={styles.btn}>파일 입력</FileBtn>
                             <p className={styles.fileText}>{file ? file.name : 'No'}</p>
                         </div>

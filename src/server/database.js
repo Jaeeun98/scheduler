@@ -33,6 +33,7 @@ class FireData {
     }    
 
     userProfileAdd(userId, fileUrl, fileName, name, aim){
+        if(!fileUrl) return;
         set(ref(db, `users/${userId}/profile`), {
             fileUrl : fileUrl,
             fileName : fileName,
