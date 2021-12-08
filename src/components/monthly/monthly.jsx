@@ -46,12 +46,13 @@ const StyledSection = styled.section`
         .fc .fc-day {
             padding:5px;
         }
-        .fc .fc-day-sun {
+        .fc .fc-day-sun .fc-daygrid-day-top, .fc .fc-day-sun .fc-col-header-cell-cushion {
             color:red;
         }
-        .fc .fc-day-sat {
+        .fc .fc-day-sat .fc-daygrid-day-top, .fc .fc-day-sat .fc-col-header-cell-cushion {
             color:blue;
         }
+        
         .fc .fc-button-primary {
             background:none;
             color:${props => props.theme.point};
@@ -99,6 +100,17 @@ const StyledSection = styled.section`
             padding:2px;
             border-radius:5px;
         }
+        .fc .fc-v-event {
+            border:none;
+            background:${props => props.theme.back};
+        } 
+        .fc .fc-v-event .fc-event-main {
+            padding:5px;
+            color:#222;
+        }
+        .fc .fc-daygrid-event-dot {
+            border-color:${props => props.theme.point};
+        }
         .google {
             color : red;
         }
@@ -117,7 +129,7 @@ const Section = ({ schedule, scheduleChange, scheduleDel, theme }) => {
         ))
         setEvent(data);
         console.log('useEffect');
-    }, [schedule, theme]);
+    }, [schedule, theme, modal]);
 
     const schduleClick = e => {
         e.jsEvent.preventDefault();

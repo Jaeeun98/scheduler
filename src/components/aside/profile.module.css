@@ -44,11 +44,6 @@
     cursor: pointer;
 }
 
-.img img {
-    width:90%;
-    height: auto;
-}
-
 .name {
     padding-bottom:1rem;
     cursor: default;
