@@ -30,7 +30,7 @@ function App({ auth, fireData, imgStorage }) {
               <Loding auth={auth} fireData={fireData}  />
             </Route>
             <Route path='/calendar'>
-              <Wrap auth={auth} fireData={fireData} imgStorage={imgStorage} colorMode={colorMode}/>
+              <Wrap auth={auth} fireData={fireData} imgStorage={imgStorage} colorMode={colorMode} theme={theme} />
             </Route>
           </Switch>
         </Router>

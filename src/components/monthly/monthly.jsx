@@ -104,7 +104,7 @@ const StyledSection = styled.section`
         }
     `
 
-const Section = ({ schedule, scheduleChange, scheduleDel }) => {
+const Section = ({ schedule, scheduleChange, scheduleDel, theme }) => {
     const [event, setEvent] = useState([]);
     const [modal, setModal] = useState(false);
     const [data, setData] = useState('');
@@ -117,7 +117,7 @@ const Section = ({ schedule, scheduleChange, scheduleDel }) => {
         ))
         setEvent(data);
         console.log('useEffect');
-    }, [schedule]);
+    }, [schedule, theme]);
 
     const schduleClick = e => {
         e.jsEvent.preventDefault();

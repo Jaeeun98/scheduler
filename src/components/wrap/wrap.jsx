@@ -5,14 +5,12 @@ import WrapHeader from '../wrapHeader/wrapHeader';
 import styles from  './wrap.module.css';
 import { useHistory } from 'react-router';
 
-const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode }) => {
+const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode, theme }) => {
     const history = useHistory();
     const historyState = history?.location?.state;
     const [userId, setUserId] = useState(historyState && historyState.userId);
     const [profile, setProfile] = useState({});
     const [schedule, setSchedule] = useState({});
-    console.log(profile);
-    console.log(schedule);
     useEffect(() => {
         auth.getAuth(user => {
             user ? setUserId(user.uid) : history.push('/');
@@ -66,6 +64,7 @@ const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode }) => {
                     schedule={schedule}
                     scheduleChange={scheduleChange}
                     scheduleDel={scheduleDel}
+                    theme={theme}
                 />
             </main>
         </div>
