@@ -11,7 +11,7 @@ const Loding = ({auth}) => {
         .then(user => {
             const userId = user.user.uid;
             nextPage(userId);
-        });
+        }).catch(alert('아이디/비번을 확인해 주세요'));
     }
 
     const nextPage = useCallback((id) => {

@@ -15,6 +15,16 @@ const Modal = styled.form`
         position:absolute;
         z-index:1;
         border-radius:5px;
+
+        @media screen and (max-width:1020px) {
+            width:40%;
+        }
+        @media screen and (max-width:800px) {
+            width:50%;
+        }
+        @media screen and (max-width:500px) {
+            width:70%;
+        }
     `
 const DelBtn = styled.button`
         position: absolute;
