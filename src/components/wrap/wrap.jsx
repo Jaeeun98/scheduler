@@ -11,6 +11,7 @@ const Wrap = React.memo(({ auth, fireData, imgStorage, colorMode, theme }) => {
     const [userId, setUserId] = useState(historyState && historyState.userId);
     const [profile, setProfile] = useState({});
     const [schedule, setSchedule] = useState({});
+    
     useEffect(() => {
         auth.getAuth(user => {
             user ? setUserId(user.uid) : history.push('/');
